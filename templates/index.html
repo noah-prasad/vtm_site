@@ -1,43 +1,11 @@
 {% extends 'base.html' %} {% block body %}
 
-<h1>My List of Friends</h1>
-<hr />
-<h3>Be my friend:</h3>
-<form action="/add_friend" method="POST">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname" autofocus required />
-  <br />
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname" />
-  <br />
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" />
-  <br /><br />
-  <input type="submit" id="submit" value="I'll Be Your Friend" />
-  <input type="reset" value="Clear" />
-</form>
-<br />
-<br />
+<h2>Welcome to VTM!</h2>
 
-<hr />
-<br />
-{% if friends %}
-<h3>My Friends</h3>
-<table id="friends">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email Address</th>
-    </tr>
-  </thead>
+<img src="{{ url_for('static', filename='images/above_ground_vertical_tanks.jpg') }}">
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Erat velit scelerisque in dictum non consectetur a erat. Leo urna molestie at elementum eu facilisis. Fermentum dui faucibus in ornare quam viverra orci sagittis eu. Felis donec et odio pellentesque diam volutpat. Egestas pretium aenean pharetra magna ac placerat vestibulum. Faucibus vitae aliquet nec ullamcorper sit amet risus. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Neque volutpat ac tincidunt vitae semper quis lectus nulla. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Diam sit amet nisl suscipit adipiscing bibendum. Etiam erat velit scelerisque in dictum non.
+    Neque laoreet suspendisse interdum consectetur libero id. Elementum integer enim neque volutpat. A iaculis at erat pellentesque. Vel risus commodo viverra maecenas. Sed felis eget velit aliquet. Fames ac turpis egestas integer eget. Morbi blandit cursus risus at ultrices. Sit amet nisl suscipit adipiscing bibendum est. Phasellus faucibus scelerisque eleifend donec pretium. Quis risus sed vulputate odio ut. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Sapien faucibus et molestie ac feugiat sed. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Mi sit amet mauris commodo quis imperdiet massa. Vulputate mi sit amet mauris commodo quis imperdiet. Nibh tellus molestie nunc non blandit massa enim. At erat pellentesque adipiscing commodo. Euismod elementum nisi quis eleifend quam adipiscing. Bibendum at varius vel pharetra vel turpis nunc.
+</p>
 
-  <tbody>
-    {% for friend in friends %}
-    <tr>
-      <td>{{ friend.name }}</td>
-      <td>{{ friend.email }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endif %} {% endblock %}
+{% endblock %}
