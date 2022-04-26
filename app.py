@@ -14,10 +14,6 @@ def about():
     return render_template('about.html', pageTitle='About VTM')
 
 
-#@app.route('/estimate')
-#def estimate():
-    #return render_template('estimate.html', pageTitle='Price Estimator', Price = Price)
-
 @app.route('/estimate', methods=['GET', 'POST'])
 def add_friend():
     if request.method == 'POST':
@@ -33,8 +29,6 @@ def add_friend():
         tot_lc = tot_sf * 15
         total_cost = tot_mc + tot_lc
         tot_cost = "$" + str(round(total_cost, 2))
-        #cost_dict = {"price": tot_cost}
-        #price_estimate.append(cost_dict)
         Price = tot_cost
         return render_template('estimate.html', pageTitle = 'Price Estimator', Price = Price)
     return render_template('estimate.html', pageTitle = 'Price Estimator')
