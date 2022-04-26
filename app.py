@@ -13,11 +13,12 @@ def index():
 def about():
     return render_template('about.html', pageTitle='About VTM')
 
-@app.route('/estimate')
-def estimate():
-    return render_template('estimate.html', pageTitle='Price Estimator', estimates = price_estimate)
 
-@app.route('/estimate_price', methods=['GET', 'POST'])
+#@app.route('/estimate')
+#def estimate():
+    #return render_template('estimate.html', pageTitle='Price Estimator', Price = Price)
+
+@app.route('/estimate', methods=['GET', 'POST'])
 def add_friend():
     if request.method == 'POST':
         form = request.form
@@ -32,10 +33,11 @@ def add_friend():
         tot_lc = tot_sf * 15
         total_cost = tot_mc + tot_lc
         tot_cost = "$" + str(round(total_cost, 2))
-        cost_dict = {"price": tot_cost}
-        price_estimate.append(cost_dict)
-        return redirect(url_for('estimate'))
-    return redirect(url_for('estimate'))
+        #cost_dict = {"price": tot_cost}
+        #price_estimate.append(cost_dict)
+        Price = tot_cost
+        return render_template('estimate.html', pageTitle = 'Price Estimator', Price = Price)
+    return render_template('estimate.html', pageTitle = 'Price Estimator')
     
 
 if __name__ == '__main__':

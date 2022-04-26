@@ -3,7 +3,7 @@
 <h2>Create an Estimate</h2>
 <hr />
 <h3>Enter Tank Information:</h3>
-<form action="/estimate_price" method="POST">
+<form action="/estimate" method="POST">
   <label for="radius">Radius:</label>
   <input type="number" id="radius" name="radius" autofocus required />
   <br />
@@ -15,20 +15,7 @@
 </form>
 <br />
 <br />
-{% if estimates %}
-<table id="estimates">
-  <thead>
-    <tr>
-      <th scope="col">Your Price Estimate</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {% for estimate in estimates %}
-    <tr>
-      <td>{{ estimate.price }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+{% if Price %}
+  <h2>Your Price Estimate</h2>
+  {{ Price }}
 {% endif %} {% endblock %}
