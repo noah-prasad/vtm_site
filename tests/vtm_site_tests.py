@@ -18,7 +18,7 @@ def test_about_route(app, client):
     WHEN the '/' route is requested (GET)
     THEN check that the response is valid
     """
-    print(" -- / GET test")
+    print(" -- /about GET test")
     with app.test_client() as test_client:
         res = test_client.get('/about')
         assert res.status_code == 200
@@ -33,7 +33,7 @@ def test_estimate_route(app, client):
     WHEN the '/' route is requested (GET)
     THEN check that the response is valid
     """
-    print(" -- / GET test")
+    print(" -- /estimate GET test")
     with app.test_client() as test_client:
         res = test_client.get('/estimate')
         assert res.status_code == 200
@@ -41,3 +41,16 @@ def test_estimate_route(app, client):
         assert b"Create an Estimate" in res.data 
         assert b"Enter Tank Information:" in res.data
         assert b"Your Price Estimate" in res.data
+
+def test_estimate_functionality(app, client):
+    """ 
+    GIVEN a Flask application configured for testing
+    WHEN the '/' route is requested (POST)
+    THEN check that the response is valid
+    """
+    print(" -- /estimate POST test")
+    with app.test_client() as test_client:
+        tank_specs = {"radius":"180", "height":"360"} 
+        res = test_client.post('/estimate', data=tank_specs)
+        assert res.status_code == 200
+        assert b"$141300.0" in res.data
